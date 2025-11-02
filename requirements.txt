@@ -1,0 +1,8 @@
+Flask==3.0.3
+gunicorn==22.0.0
+torch==2.8.0
+gensim==4.3.2
+nltk==3.8.1
+pyspellchecker==0.8.1
+numpy==1.26.4
+scipy==1.12.0
