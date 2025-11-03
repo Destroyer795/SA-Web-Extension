@@ -30,12 +30,12 @@ async function analyzeSentiment(text) {
     const data = await response.json();
     const scorePercent = (data.score * 100).toFixed(1);
 
-    // Used 4.jpg for positive, 5.jpg for negative, 3.jpg for neutral
-    let iconFile = "3.jpg";
+    // Used 4.jpeg for positive, 5.jpeg for negative, 3.jpeg for neutral
+    let iconFile = "3.jpeg";
     if (data.sentiment === "Positive") {
-      iconFile = "4.jpg";
+      iconFile = "4.jpeg";
     } else if (data.sentiment === "Negative") {
-      iconFile = "5.jpg";
+      iconFile = "5.jpeg";
     }
 
     chrome.notifications.create({
@@ -48,7 +48,7 @@ async function analyzeSentiment(text) {
     console.error("[Sentiment Analyzer] Error:", error);
     chrome.notifications.create({
       type: "basic",
-      iconUrl: "3.jpg",
+      iconUrl: "3.jpeg",
       title: "Error",
       message: "Failed to analyze sentiment. Please try again."
     });
