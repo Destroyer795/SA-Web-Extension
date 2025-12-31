@@ -1,4 +1,11 @@
-// Registering context menu on install
+/**
+ * Sentiment Analyzer Pro - Background Script
+ * ------------------------------------------
+ * Handles context menu creation and interaction with the backend API.
+ * It sends selected text to the analysis server and displays the result via notifications.
+ */
+
+// Register the context menu item when the extension is installed
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "analyzeSentiment",
@@ -7,16 +14,22 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-// Handle context menu click
+// Event listener for context menu clicks
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "analyzeSentiment" && info.selectionText) {
     analyzeSentiment(info.selectionText);
   }
 });
 
-// Function to call backend and show result
+/**
+ * Sends the selected text to the backend API for sentiment analysis
+ * and displays the result in a Chrome notification.
+ * 
+ * @param {string} text - The text selected by the user.
+ */
 async function analyzeSentiment(text) {
   try {
+    // Replace with your actual backend URL if different
     const response = await fetch("https://destroyer795-trial.hf.space/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +43,8 @@ async function analyzeSentiment(text) {
     const data = await response.json();
     const scorePercent = (data.score * 100).toFixed(1);
 
-    // Used 4.jpeg for positive, 5.jpeg for negative, 3.jpeg for neutral
+    // Determine the appropriate icon based on sentiment
+    // 4.jpeg = Positive, 5.jpeg = Negative, 3.jpeg = Neutral/Mixed
     let iconFile = "3.jpeg";
     if (data.sentiment === "Positive") {
       iconFile = "4.jpeg";
@@ -38,6 +52,7 @@ async function analyzeSentiment(text) {
       iconFile = "5.jpeg";
     }
 
+    // Display the result
     chrome.notifications.create({
       type: "basic",
       iconUrl: iconFile,
