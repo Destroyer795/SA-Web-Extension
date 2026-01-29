@@ -176,7 +176,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Developer**: [Destroyer795](https://github.com/Destroyer795)
 - **Hugging Face Space**: [Sentiment-Analyzer-Extension](https://huggingface.co/spaces/destroyer795/Sentiment-Analyzer-Extension)
-
----
-
-Made with love using AI and Flask
