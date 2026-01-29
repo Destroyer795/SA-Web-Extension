@@ -76,7 +76,7 @@ def health_check():
     return "Sentiment Analyzer Pro API is online."
 
 if __name__ == '__main__':
-    # Runing the Flask app
+    # Runing     the Flask app
     # Host '0.0.0.0' exposes the server to external connections.
     # Port 7860 is the default for many cloud platforms (e.g., Hugging Face Spaces).
     app.run(host='0.0.0.0', port=7860)

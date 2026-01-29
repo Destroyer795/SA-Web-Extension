@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sentiment Pro</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="panel">
+    
+    <header>
+      <h1>Sentiment <span class="accent">Analyzer</span></h1>
+      <div id="status-dot" class="status-dot neu"></div>
+    </header>
+
+    <main class="content">
+      
+      <div id="empty-state" class="state-view">
+        <img src="3.jpeg" class="state-icon" alt="" />
+        <p>Select text to analyze sentiment</p>
+      </div>
+
+      <div id="loading" class="state-view hidden">
+        <div class="spinner"></div>
+        <p>Analyzing…</p>
+      </div>
+
+      <div id="results" class="hidden">
+        
+        <div class="sentiment-card">
+          <img id="sentiment-icon" src="3.jpeg" class="sentiment-img" alt="" />
+          <div class="sentiment-info">
+            <span class="label">Sentiment</span>
+            <span id="sentiment-badge" class="badge neu">Neutral</span>
+          </div>
+        </div>
+
+        <div class="confidence-section">
+          <div class="confidence-header">
+            <span class="label">Confidence</span>
+            <span id="score-text" class="score">0%</span>
+          </div>
+          <div class="meter-bg">
+            <div id="confidence-bar" class="meter-fill"></div>
+          </div>
+          <span id="flag-tag" class="flag-tag">—</span>
+        </div>
+
+        <div class="text-section">
+          <span class="label">Analyzed Text</span>
+          <p id="selected-text" class="text-quote"></p>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

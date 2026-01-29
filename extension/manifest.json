@@ -1,28 +1,23 @@
 {
   "manifest_version": 3,
   "name": "Sentiment Analyzer",
-  "version": "1.0.0",
-  "description": "Analyze the sentiment of selected text using an AI backend.",
+  "version": "2.0.0",
+  "description": "Instantly analyze the emotional tone of any text with AI-powered sentiment detection.",
   "permissions": [
     "contextMenus",
-    "activeTab",
-    "notifications"
+    "storage"
   ],
   "host_permissions": [
-    "https://destroyer795-trial.hf.space/*"
+    "https://destroyer795-sentiment-analyzer-extension.hf.space/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "icons": {
-    "16": "icon.jpg",
-    "48": "icon.jpg",
-    "128": "icon.jpg"
-  },
   "action": {
-    "default_icon": {
-      "16": "icon.jpg",
-      "48": "icon.jpg"
-    }
+    "default_title": "Sentiment Pro",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon.jpg"
   }
 }
